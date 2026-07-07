@@ -26,3 +26,9 @@ body {
   outline-offset: 2px;
 }
 
+/* Top menu / overlay tweaks */
+.menu-overlay-content {
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(16, 24, 40, 0.08);
+}
+

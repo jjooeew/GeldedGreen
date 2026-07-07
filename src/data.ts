@@ -1,4 +1,4 @@
-const bonsaiCategoryImage = new URL("./assets/images/bonsai_category_1782209180286.jpg", import.meta.url).href;
+const bonsaiCategoryImage = new URL("./assets/images/bonsai-1.png", import.meta.url).href;
 const cutesyCategoryImage = new URL("./assets/images/cutesy-girl-1.png", import.meta.url).href;
 const miniCeramicCategoryImage = new URL("./assets/images/mini-ceramic-2.png", import.meta.url).href;
 const opShopCategoryImage = new URL("./assets/images/op_shop_category_1782209195077.jpg", import.meta.url).href;

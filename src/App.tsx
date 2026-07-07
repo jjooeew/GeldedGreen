@@ -7,9 +7,14 @@ import { useState, startTransition } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import LandingPage from "./components/LandingPage";
 import CategoryPage from "./components/CategoryPage";
+import TopMenu from "./components/TopMenu";
+import ContactPage from "./components/ContactPage";
+import PlantCarePage from "./components/PlantCarePage";
 
 export default function App() {
-  const [activePage, setActivePage] = useState<"landing" | "category">("landing");
+  const [activePage, setActivePage] = useState<
+    "landing" | "category" | "contact" | "plantCare"
+  >("landing");
   const [selectedCategoryId, setSelectedCategoryId] = useState<string>("");
 
   const handleSelectCategory = (categoryId: string) => {
@@ -32,8 +37,21 @@ export default function App() {
     });
   };
 
+  const handleOpenContact = () => {
+    startTransition(() => setActivePage("contact"));
+  };
+  const handleOpenPlantCare = () => {
+    startTransition(() => setActivePage("plantCare"));
+  };
+
   return (
     <div className="min-h-screen bg-white text-neutral-950">
+      <TopMenu
+        onOpenContact={handleOpenContact}
+        onOpenPlantCare={handleOpenPlantCare}
+        // onOpenAbout={handleOpenAbout}
+        // onOpenDelivery={handleOpenDelivery}
+      />
       <AnimatePresence mode="wait">
         {activePage === "landing" ? (
           <motion.div
@@ -45,7 +63,7 @@ export default function App() {
           >
             <LandingPage onSelectCategory={handleSelectCategory} />
           </motion.div>
-        ) : (
+        ) : activePage === "category" ? (
           <motion.div
             key="category-page"
             initial={{ opacity: 0 }}
@@ -59,9 +77,30 @@ export default function App() {
               onNavigateToCategory={handleNavigateToCategory}
             />
           </motion.div>
+        ) : activePage === "plantCare" ? (
+          <motion.div
+            key="plant-care-page"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            <PlantCarePage 
+              onBack={handleBackToLanding}
+            />
+          </motion.div>
+        ) : (
+          <motion.div
+            key="contact-page"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <ContactPage onBack={handleBackToLanding} />
+          </motion.div>
         )}
       </AnimatePresence>
     </div>
   );
 }
-
