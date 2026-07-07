@@ -29,14 +29,14 @@ export default function LandingPage({ onSelectCategory }: LandingPageProps) {
           Gelded Green
         </motion.h1>
 
-        <motion.p
+        {/* <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
           className="text-neutral-500 font-sans font-light text-xs md:text-sm tracking-widest uppercase mt-4"
         >
           Curated botanical specimens & artisan vessels.
-        </motion.p>
+        </motion.p> */}
       </header>
 
       <main className="flex-1 overflow-y-auto pb-4">
@@ -54,7 +54,7 @@ export default function LandingPage({ onSelectCategory }: LandingPageProps) {
               className="group flex flex-col text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-neutral-400 focus-visible:ring-offset-4 p-1 bg-transparent transition-all cursor-pointer"
               id={`category-btn-${category.id}`}
             >
-              <div className="aspect-[4/5] w-full overflow-hidden rounded-md bg-neutral-50 mb-2 relative">
+              <div className="aspect-[4/5] w-full overflow-hidden rounded-md mb-2 relative">
                 <img
                   src={category.image}
                   alt={`${category.name} plant category`}
@@ -62,7 +62,7 @@ export default function LandingPage({ onSelectCategory }: LandingPageProps) {
                 />
               </div>
 
-              <div className="flex items-center justify-between border-b border-neutral-100 pb-1 pt-1">
+              <div className="flex items-center justify-between pb-1 pt-1">
                 <h2 className="font-serif text-[11px] md:text-xs tracking-widest uppercase text-neutral-800 font-medium group-hover:text-neutral-500 transition-colors">
                   {category.name}
                 </h2>
