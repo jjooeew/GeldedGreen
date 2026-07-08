@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 interface TopMenuProps {
   onOpenContact: () => void;
   onOpenPlantCare: () => void;
+  onOpenDelivery: () => void;
   // onOpenAbout: () => void;
-  // onOpenDelivery: () => void;
 }
 
-export default function TopMenu({ onOpenContact, onOpenPlantCare }: TopMenuProps) {
+export default function TopMenu({ onOpenContact, onOpenPlantCare, onOpenDelivery }: TopMenuProps) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -80,8 +80,8 @@ export default function TopMenu({ onOpenContact, onOpenPlantCare }: TopMenuProps
                 Plant Care
               </a>
 
-              {/* <a
-                href="/"
+              <a
+                href="#"
                 onClick={(e) => {
                   e.preventDefault();
                   setOpen(false);
@@ -90,7 +90,7 @@ export default function TopMenu({ onOpenContact, onOpenPlantCare }: TopMenuProps
                 className="text-lg font-medium text-neutral-900 block"
               >
                 Delivery & Collection
-              </a> */}
+              </a>
 
               <a
                 href="#"

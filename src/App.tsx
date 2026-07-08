@@ -10,10 +10,11 @@ import CategoryPage from "./components/CategoryPage";
 import TopMenu from "./components/TopMenu";
 import ContactPage from "./components/ContactPage";
 import PlantCarePage from "./components/PlantCarePage";
+import DeliveryPage from "./components/DeliveryPage";
 
 export default function App() {
   const [activePage, setActivePage] = useState<
-    "landing" | "category" | "contact" | "plantCare"
+    "landing" | "category" | "contact" | "plantCare" | "delivery"
   >("landing");
   const [selectedCategoryId, setSelectedCategoryId] = useState<string>("");
 
@@ -43,14 +44,17 @@ export default function App() {
   const handleOpenPlantCare = () => {
     startTransition(() => setActivePage("plantCare"));
   };
+  const handleOpenDelivery = () => {
+    startTransition(() => setActivePage("delivery"));
+  };
 
   return (
     <div className="min-h-screen bg-white text-neutral-950">
       <TopMenu
         onOpenContact={handleOpenContact}
         onOpenPlantCare={handleOpenPlantCare}
+        onOpenDelivery={handleOpenDelivery}
         // onOpenAbout={handleOpenAbout}
-        // onOpenDelivery={handleOpenDelivery}
       />
       <AnimatePresence mode="wait">
         {activePage === "landing" ? (
@@ -85,9 +89,17 @@ export default function App() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
           >
-            <PlantCarePage 
-              onBack={handleBackToLanding}
-            />
+            <PlantCarePage onBack={handleBackToLanding} />
+          </motion.div>
+        ) : activePage === "delivery" ? (
+          <motion.div
+            key="delivery-page"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            <DeliveryPage onBack={handleBackToLanding} />
           </motion.div>
         ) : (
           <motion.div

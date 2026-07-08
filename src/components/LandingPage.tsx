@@ -54,7 +54,7 @@ export default function LandingPage({ onSelectCategory }: LandingPageProps) {
               className="group flex flex-col text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-neutral-400 focus-visible:ring-offset-4 p-1 bg-transparent transition-all cursor-pointer"
               id={`category-btn-${category.id}`}
             >
-              <div className="aspect-[4/5] w-full overflow-hidden rounded-md mb-2 relative">
+              <div className="aspect-4/5 w-full overflow-hidden rounded-md mb-2 relative">
                 <img
                   src={category.image}
                   alt={`${category.name} plant category`}

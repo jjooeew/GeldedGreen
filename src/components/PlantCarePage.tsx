@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { ArrowLeft } from "lucide-react";
+import goldenmandela from "../assets/images/golden-mandela-no-bg-2.png";
 
 interface PlantCarePageProps {
   onBack: () => void;
@@ -74,7 +75,8 @@ export default function PlantCarePage({ onBack }: PlantCarePageProps) {
           <span>Back</span>
         </button>
 
-        <span className="text-sm tracking-[0.25em] uppercase font-light text-neutral-900 cursor-pointer" onClick={onBack}>
+        <span className="text-sm tracking-[0.25em] uppercase font-light text-neutral-900 cursor-pointer flex flex-col items-center" onClick={onBack}>
+          <img src={goldenmandela} alt="Gelded Green logo" className="w-10 h-10 inline-block mr-1" />
           Gelded Green
         </span>
 
@@ -96,14 +98,14 @@ export default function PlantCarePage({ onBack }: PlantCarePageProps) {
           >
             Plant Care
           </motion.h1>
-          <motion.p
+          {/* <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.15 }}
             className="text-neutral-400 font-sans font-light text-[11px] md:text-xs tracking-widest uppercase max-w-md mx-auto"
           >
             Simple guidance to help your living arrangements thrive.
-          </motion.p>
+          </motion.p> */}
         </div>
 
         {/* Care Columns */}
