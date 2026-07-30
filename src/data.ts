@@ -149,8 +149,8 @@ const CATEGORY_DATA: CategoryInput[] = [
     ]
   },
   {
-    id: "op-shop",
-    name: "Op Shop",
+    id: "random",
+    name: "Random",
     tagline: "Mismatched, nostalgic kitchenware and eccentric vintage items given a second, botanical life.",
     image: opShopCategoryImage,
     products: [
@@ -267,8 +267,8 @@ const CATEGORY_DATA: CategoryInput[] = [
     ]
   },
   {
-    id: "mini-ceramic",
-    name: "Mini Ceramic",
+    id: "mystic",
+    name: "Mystic",
     tagline: "Tiny geometric containers styled in neutral tones and blush glazes with micro-botanicals.",
     image: miniCeramicCategoryImage,
     products: [

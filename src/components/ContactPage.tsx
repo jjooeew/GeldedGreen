@@ -1,22 +1,23 @@
-interface ContactPageProps {
-  onBack: () => void;
-}
-
-export default function ContactPage({ onBack }: ContactPageProps) {
+export default function ContactPage() {
   return (
-    <div className="h-screen flex flex-col items-center justify-start p-6">
-      <div className="max-w-2xl w-full mt-12">
-        <button
-          onClick={onBack}
-          className="mb-4 text-sm text-neutral-600"
-        >
-          ← Back
-        </button>
-
-        <h1 className="font-serif text-3xl mb-2">Contact</h1>
-        <p className="text-neutral-600 mb-4">For inquiries, email us at <a href="mailto:hello@example.com" className="text-neutral-900 underline">hello@example.com</a>.</p>
-
-        <p className="text-neutral-500 text-sm">This is a placeholder contact page.</p>
+    <div className="min-h-full px-6 py-14 md:px-12">
+      <div className="mx-auto w-full max-w-2xl text-center">
+        <p className="mb-4 text-[10px] font-medium uppercase tracking-[0.25em] text-neutral-400">
+          Get in touch
+        </p>
+        <h1 className="mb-6 font-serif text-4xl font-light uppercase tracking-[0.2em] md:text-5xl">
+          Contact
+        </h1>
+        <p className="text-sm font-light leading-relaxed text-neutral-600">
+          For product, collection, or delivery enquiries, email us at{" "}
+          <a
+            href="mailto:hello@example.com"
+            className="text-neutral-900 underline decoration-neutral-300 underline-offset-4 hover:decoration-neutral-900"
+          >
+            hello@example.com
+          </a>
+          .
+        </p>
       </div>
     </div>
   );
