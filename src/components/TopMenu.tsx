@@ -48,7 +48,7 @@ export default function TopMenu({
   };
 
   return (
-    <header className="relative z-50 shrink-0 border-b border-neutral-100 bg-white px-4 pt-3 md:px-8 md:pt-4">
+    <header className="relative z-50 shrink-0 border-b border-neutral-100 bg-white px-4 pt-4 md:px-8 md:pt-10">
       <button
         type="button"
         onClick={() => navigate(onOpenHome)}

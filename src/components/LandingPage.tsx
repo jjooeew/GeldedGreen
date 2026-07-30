@@ -7,7 +7,7 @@ interface LandingPageProps {
 
 export default function LandingPage({ onSelectCategory }: LandingPageProps) {
   return (
-    <div className="h-full overflow-y-auto bg-white px-4 py-5 text-neutral-900 selection:bg-neutral-100 md:px-12 md:py-7">
+    <div className="h-full overflow-y-auto bg-white px-4 py-5 text-neutral-900 selection:bg-neutral-100 md:px-12 md:py-10">
       <main className="mx-auto max-w-7xl">
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
           {CATEGORIES.map((category, index) => (
