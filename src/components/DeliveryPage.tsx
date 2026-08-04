@@ -53,9 +53,9 @@ function DeliveryColumn({ options, startIndex }: DeliveryColumnProps) {
           transition={{ duration: 0.6, delay: 0.1 * (startIndex + index) }}
           className="py-6"
         >
-          <p className="mb-3 text-[9px] font-semibold uppercase tracking-[0.25em] text-neutral-400">
+          {/* <p className="mb-3 text-[9px] font-semibold uppercase tracking-[0.25em] text-neutral-400">
             {option.label}
-          </p>
+          </p> */}
           <h2 className="mb-3 font-serif text-xl font-light uppercase tracking-[0.12em] text-neutral-900 md:text-2xl">
             {option.title}
           </h2>
@@ -91,14 +91,14 @@ export default function DeliveryPage() {
           >
             Delivery & Collection
           </motion.h1>
-          <motion.p
+          {/* <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.15 }}
             className="mx-auto max-w-md text-[10px] font-light uppercase tracking-widest text-neutral-400 md:text-xs"
           >
             A simple guide to receiving your Gelded Green arrangement.
-          </motion.p>
+          </motion.p> */}
         </div>
 
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(240px,1fr)_minmax(280px,0.9fr)_minmax(240px,1fr)] lg:items-stretch xl:gap-14">
@@ -116,7 +116,7 @@ export default function DeliveryPage() {
           <DeliveryColumn options={deliveryOptions.slice(2)} startIndex={2} />
         </div>
 
-        <motion.p
+        {/* <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.45 }}
@@ -125,7 +125,7 @@ export default function DeliveryPage() {
           “If you are unsure whether a plant can be couriered, collected, or
           locally delivered, please get in touch before ordering and we can
           confirm the best option.”
-        </motion.p>
+        </motion.p> */}
       </main>
     </div>
   );

@@ -3,7 +3,13 @@ import { Menu, X } from "lucide-react";
 import { CATEGORIES } from "../data";
 import goldenMandela from "../assets/images/golden-mandela-no-bg-2-clipped.png";
 
-type PageId = "landing" | "category" | "contact" | "plantCare" | "delivery";
+type PageId =
+  | "landing"
+  | "category"
+  | "product"
+  | "contact"
+  | "plantCare"
+  | "delivery";
 
 interface TopMenuProps {
   activePage: PageId;
@@ -53,14 +59,14 @@ export default function TopMenu({
         type="button"
         onClick={() => navigate(onOpenHome)}
         aria-label="Go to the Gelded Green home page"
-        className="mx-auto flex flex-col items-center rounded-sm focus:outline-none focus-visible:ring-1 focus-visible:ring-neutral-500 focus-visible:ring-offset-4"
+        className="mx-auto flex flex-row items-center rounded-sm focus:outline-none focus-visible:ring-1 focus-visible:ring-neutral-500 focus-visible:ring-offset-4"
       >
         <img
           src={goldenMandela}
           alt=""
-          className="h-14 w-14 object-contain md:h-16 md:w-16"
+          className="h-14 w-14 object-contain md:h-16 md:w-16 pr-2"
         />
-        <span className="font-serif text-2xl font-light uppercase tracking-[0.12em] text-neutral-900 md:text-3xl">
+        <span className="font-serif text-2xl font-light uppercase tracking-[0.12em] text-neutral-900 md:text-5xl">
           Gelded Green
         </span>
       </button>
@@ -87,7 +93,8 @@ export default function TopMenu({
       >
         {CATEGORIES.map((category) => {
           const isActive =
-            activePage === "category" && selectedCategoryId === category.id;
+            (activePage === "category" || activePage === "product") &&
+            selectedCategoryId === category.id;
 
           return (
             <button

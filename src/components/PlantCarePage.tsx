@@ -1,63 +1,29 @@
 import { motion } from "motion/react";
 import SplitPageImage from "./SplitPageImage";
 
-const succulentCare = [
+interface CareItem {
+  label?: string;
+  desc: string;
+}
+
+const succulentCare: CareItem[] = [
   {
-    label: "Light",
+    // label: "How to care",
     desc: "Bright, indirect sunlight. A south or east-facing windowsill provides the perfect exposure.",
-  },
-  {
-    label: "Water",
-    desc: "Allow soil to dry out completely between waterings. Soak thoroughly, then let drain fully. Never let standing water remain.",
-  },
-  {
-    label: "Position",
-    desc: "Place in open spaces with gentle, natural airflow. Avoid humid rooms or dark, enclosed corners.",
-  },
-  {
-    label: "Temperature",
-    desc: "Thrives in warm environments (15°C–28°C). Safeguard from drafts and winter frost.",
-  },
-  {
-    label: "Maintenance",
-    desc: "Gently clear dry or withered leaves from the base of the plant. Repot in porous, well-draining grit every two years.",
-  },
-  {
-    label: "Common Mistake",
-    desc: "Overwatering. Excessive moisture blocks root respiration and leads to soft, translucent leaves.",
   },
 ];
 
-const bonsaiCare = [
+const bonsaiCare: CareItem[] = [
   {
-    label: "Light",
+    // label: "Further Info",
     desc: "Generous filtered light. Most species flourish with a few hours of soft, direct morning sun.",
   },
-  {
-    label: "Water",
-    desc: "Keep the soil consistently damp but never soggy. Water evenly as soon as the topsoil begins to feel dry to the touch.",
-  },
-  {
-    label: "Position",
-    desc: "Keep well away from heating vents, radiators, and air conditioners to prevent the delicate root system from drying out.",
-  },
-  {
-    label: "Temperature",
-    desc: "Prefers steady, moderate conditions (10°C–24°C). Protect from sudden, extreme temperature shifts.",
-  },
-  {
-    label: "Maintenance",
-    desc: "Prune new shoots regularly during the growing season to maintain the tree's silhouette. Occasional gentle misting helps retain vitality.",
-  },
-  {
-    label: "Common Mistake",
-    desc: "Allowing the root ball to dry out entirely. Bonsai vessels hold very little soil, meaning moisture reserves deplete rapidly.",
-  },
+
 ];
 
 interface CareColumnProps {
   title: string;
-  items: typeof succulentCare;
+  items: CareItem[];
   direction: "left" | "right";
 }
 
@@ -73,10 +39,12 @@ function CareColumn({ title, items, direction }: CareColumnProps) {
       </h2>
       <div className="divide-y divide-neutral-100">
         {items.map((item) => (
-          <div key={item.label} className="py-4">
-            <p className="mb-2 text-[9px] font-semibold uppercase tracking-[0.2em] text-neutral-400">
-              {item.label}
-            </p>
+          <div key={item.label ?? item.desc} className="py-4">
+            {item.label ? (
+              <p className="mb-2 text-[9px] font-semibold uppercase tracking-[0.2em] text-neutral-400">
+                {item.label}
+              </p>
+            ) : null}
             <p className="text-xs font-light leading-relaxed text-neutral-600 md:text-[13px]">
               {item.desc}
             </p>
@@ -105,7 +73,7 @@ export default function PlantCarePage() {
 
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(240px,1fr)_minmax(280px,0.9fr)_minmax(240px,1fr)] lg:items-stretch xl:gap-14">
           <CareColumn
-            title="Succulent Care"
+            title="High Level Info"
             items={succulentCare}
             direction="left"
           />
@@ -120,7 +88,7 @@ export default function PlantCarePage() {
           </motion.div>
 
           <CareColumn
-            title="Bonsai Care"
+            title="Detailed Info"
             items={bonsaiCare}
             direction="right"
           />

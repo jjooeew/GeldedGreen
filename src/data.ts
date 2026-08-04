@@ -22,6 +22,7 @@ export interface Product {
   price: number;
   description: string;
   image: string;
+  images?: string[];
   status: ProductStatus;
   height: string;
   difficulty: "Easy" | "Medium" | "Expert";
@@ -34,7 +35,9 @@ export interface Category {
   id: string;
   name: string;
   tagline: string;
+  info?: string;
   image: string;
+  images?: string[];
   products: Product[];
 }
 
@@ -51,6 +54,7 @@ const CATEGORY_DATA: CategoryInput[] = [
     id: "cutesy",
     name: "Cutesy Girls",
     tagline: "Whimsical pots full of character to brighten up your desk and bring a smile to your face.",
+    info: "These playful, handmade planters are designed to bring a touch of joy and personality to your home or office. Each piece is carefully crafted with attention to detail, featuring charming faces and unique designs that make them perfect companions for your favorite plants.",
     image: cutesyCategoryImage,
     products: [
       {

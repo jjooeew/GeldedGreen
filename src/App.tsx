@@ -7,20 +7,29 @@ import { startTransition, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import LandingPage from "./components/LandingPage";
 import CategoryPage from "./components/CategoryPage";
+import ProductPage from "./components/ProductPage";
 import TopMenu from "./components/TopMenu";
 import ContactPage from "./components/ContactPage";
 import PlantCarePage from "./components/PlantCarePage";
 import DeliveryPage from "./components/DeliveryPage";
 
-type PageId = "landing" | "category" | "contact" | "plantCare" | "delivery";
+type PageId =
+  | "landing"
+  | "category"
+  | "product"
+  | "contact"
+  | "plantCare"
+  | "delivery";
 
 export default function App() {
   const [activePage, setActivePage] = useState<PageId>("landing");
   const [selectedCategoryId, setSelectedCategoryId] = useState("");
+  const [selectedProductId, setSelectedProductId] = useState("");
 
   const handleSelectCategory = (categoryId: string) => {
     startTransition(() => {
       setSelectedCategoryId(categoryId);
+      setSelectedProductId("");
       setActivePage("category");
     });
   };
@@ -29,13 +38,22 @@ export default function App() {
     startTransition(() => {
       setActivePage("landing");
       setSelectedCategoryId("");
+      setSelectedProductId("");
     });
   };
 
   const handleNavigateToCategory = (categoryId: string) => {
     startTransition(() => {
       setSelectedCategoryId(categoryId);
+      setSelectedProductId("");
       setActivePage("category");
+    });
+  };
+
+  const handleSelectProduct = (productId: string) => {
+    startTransition(() => {
+      setSelectedProductId(productId);
+      setActivePage("product");
     });
   };
 
@@ -85,7 +103,25 @@ export default function App() {
               transition={{ duration: 0.4 }}
               className="h-full"
             >
-              <CategoryPage categoryId={selectedCategoryId} />
+              <CategoryPage
+                categoryId={selectedCategoryId}
+                onSelectProduct={handleSelectProduct}
+              />
+            </motion.div>
+          ) : activePage === "product" ? (
+            <motion.div
+              key="product-page"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+              className="h-full"
+            >
+              <ProductPage
+                categoryId={selectedCategoryId}
+                productId={selectedProductId}
+                onSelectProduct={handleSelectProduct}
+              />
             </motion.div>
           ) : activePage === "plantCare" ? (
             <motion.div
