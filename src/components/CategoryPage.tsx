@@ -19,12 +19,9 @@ export default function CategoryPage({
   );
   const galleryImages = useMemo(
     () => [
-      category.image,
+      category.coverImage ?? category.image,
       ...(category.images ?? []),
-      ...category.products.flatMap((product) => [
-        product.image,
-        ...(product.images ?? []),
-      ]),
+      ...category.products.map((product) => product.image),
     ],
     [category],
   );
