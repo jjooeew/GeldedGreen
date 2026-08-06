@@ -19,7 +19,7 @@ export const cutesyGirls: CategoryInput = {
     {
       id: "fern",
       name: "Fern",
-      price: 40,
+      price: 75,
       description:
         "A charming handmade planter featuring a peaceful face, cascading greenery, and a striking succulent crown. A unique decorative piece that brings warmth and personality to any home.",
       image: fernImages[0],

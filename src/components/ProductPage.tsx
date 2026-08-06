@@ -129,9 +129,9 @@ export default function ProductPage({
               >
                 {activeProduct.name}
               </h2>
-              {/* <p className="mt-4 text-xl font-light text-neutral-900">
+              <p className="mt-4 text-xl font-light text-neutral-900">
                 ${activeProduct.price.toFixed(2)}
-              </p> */}
+              </p>
             </div>
 
             <p className="py-6 text-sm font-light leading-relaxed text-neutral-600">
